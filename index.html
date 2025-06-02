@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AR Mission Simulator</title>
-    
-    <!-- Load Three.js BEFORE script.js -->
-    <script type="module" src="https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.module.js"></script>
-    
-    <script type="module" src="script.js" defer></script>
-</head>
-<body>
-    <button id="enter-ar">Start AR Simulation</button>
-</body>
-</html>
+<script type="module">
+   import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.module.js';
+   window.THREE = THREE; // ✅ Make THREE globally available
+</script>
+<script type="module" src="script.js"></script>
