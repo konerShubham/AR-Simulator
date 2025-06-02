@@ -1,8 +1,7 @@
-// ✅ Ensure Three.js is imported first
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.module.js';
 
-// ✅ Define scene at the start of the script
-let scene = new THREE.Scene(); // 🔥 This ensures scene exists before usage
+// ✅ Define the scene at the beginning
+let scene = new THREE.Scene();
 console.log("✅ Scene initialized:", scene);
 
 document.addEventListener("DOMContentLoaded", () => {
