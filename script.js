@@ -10,7 +10,7 @@ navigator.geolocation.getCurrentPosition((position) => {
     let xPos = (lon - 80) * 0.001;
     let yPos = (lat - 20) * 0.001;
 
-    console.log('📌 Marker Position: X = ${xPos}, Y = ${yPos}, Z = -0.5');
+    console.log('📌 Calculated Marker Position: X = ${xPos}, Y = ${yPos}, Z = -0.5');
     marker.position.set(xPos, yPos, -0.5);
     scene.add(marker);
     console.log("✅ GPS marker added!");
