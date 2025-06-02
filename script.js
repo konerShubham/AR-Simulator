@@ -1,11 +1,12 @@
+// ✅ Ensure Three.js is imported first
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.module.js';
+
+// ✅ Define scene at the start of the script
+let scene = new THREE.Scene(); // 🔥 This ensures scene exists before usage
+console.log("✅ Scene initialized:", scene);
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("🚀 DOM fully loaded, initializing Three.js...");
-
-    // ✅ Ensure Scene is Defined
-    let scene = new THREE.Scene(); // 🔥 This ensures scene exists before usage
-    console.log("✅ Scene initialized:", scene);
 
     let camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 100);
     let renderer = new THREE.WebGLRenderer();
