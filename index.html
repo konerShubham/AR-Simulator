@@ -1,5 +1,22 @@
-<script type="module">
-   import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.module.js';
-   window.THREE = THREE; // ✅ Make THREE globally available
-</script>
-<script type="module" src="script.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebXR GPS AR Simulator</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script type="module">
+        // ✅ Ensure Three.js is globally available before script.js runs
+        import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.module.js';
+        window.THREE = THREE;
+    </script>
+
+    <!-- ✅ Main JavaScript File -->
+    <script type="module" src="script.js"></script>
+</body>
+</html>
