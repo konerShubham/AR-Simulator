@@ -3,7 +3,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.m
 document.addEventListener("DOMContentLoaded", () => {
     console.log("🚀 DOM fully loaded, initializing Three.js...");
 
-    // ✅ Define the Three.js Scene
+    // ✅ Initialize Scene
     let scene = new THREE.Scene();
     console.log("✅ Scene initialized:", scene);
 
@@ -34,21 +34,25 @@ document.addEventListener("DOMContentLoaded", () => {
         let lon = position.coords.longitude;
         console.log('📍 GPS received: Latitude = ${lat}, Longitude = ${lon}');
 
+        // ✅ Create GPS Marker
         let markerGeometry = new THREE.SphereGeometry(0.2, 32, 32);
         let markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
         let marker = new THREE.Mesh(markerGeometry, markerMaterial);
 
-        let xPos = (lon - 80) * 0.001;
-        let yPos = (lat - 20) * 0.001;
+        // ✅ Adjust Placement Formula for Better Accuracy
+        let xPos = (lon - (-0.12)) * 500;
+        let yPos = (lat - 51.5) * 500;
         marker.position.set(xPos, yPos, -0.5);
+        console.log('📌 Adjusted GPS Marker at X=${xPos}, Y=${yPos}, Z=-0.5');
 
         scene.add(marker);
-        console.log('✅ GPS Marker Added at X=${xPos}, Y=${yPos}, Z=-0.5');
+        console.log("✅ GPS Marker added successfully!");
     }, (error) => {
         console.error("❌ GPS Error:", error);
     });
 
+    // ✅ Animation Loop
     renderer.setAnimationLoop(() => {
         renderer.render(scene, camera);
-    });
+});
 });
