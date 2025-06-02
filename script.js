@@ -1,11 +1,11 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.module.js';
 
-// ✅ Define the scene at the beginning
-let scene = new THREE.Scene();
-console.log("✅ Scene initialized:", scene);
-
 document.addEventListener("DOMContentLoaded", () => {
     console.log("🚀 DOM fully loaded, initializing Three.js...");
+
+    // ✅ Define the Three.js Scene
+    let scene = new THREE.Scene();
+    console.log("✅ Scene initialized:", scene);
 
     let camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 100);
     let renderer = new THREE.WebGLRenderer();
