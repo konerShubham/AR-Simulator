@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log("🚀 DOM fully loaded, initializing Three.js...");
 
     // ✅ Initialize Scene
-    let scene = new THREE.Scene();
+    let scene = new THREE.Scene(); // 🔥 This ensures scene exists before usage
     console.log("✅ Scene initialized:", scene);
 
     let camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 100);
@@ -12,12 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
-    // ✅ Add Lighting
     let light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
     scene.add(light);
     console.log("✅ Lighting added!");
 
-    // ✅ Test Cube for Scene Verification
     let testCube = new THREE.Mesh(
         new THREE.BoxGeometry(1, 1, 1),
         new THREE.MeshBasicMaterial({ color: 0x00ff00 })
@@ -25,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     scene.add(testCube);
     console.log("✅ Test cube added!");
 
-    // ✅ Fetch GPS Data & Add Marker
+    // ✅ GPS Data & Marker Placement
     navigator.geolocation.getCurrentPosition((position) => {
         if (!position || !position.coords) {
             console.error("❌ GPS data is undefined! Skipping marker addition.");
@@ -34,9 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
-        console.log(📍 GPS received: Latitude = ${lat}, Longitude = ${lon});
+        console.log('📍 GPS received: Latitude = ${lat}, Longitude = ${lon}');
 
-        // ✅ Create GPS Marker
         let markerGeometry = new THREE.SphereGeometry(0.2, 32, 32);
         let markerMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
         let marker = new THREE.Mesh(markerGeometry, markerMaterial);
@@ -44,14 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
         let xPos = (lon - 80) * 0.001;
         let yPos = (lat - 20) * 0.001;
         marker.position.set(xPos, yPos, -0.5);
-        
+
         scene.add(marker);
-        console.log(✅ GPS Marker Added at X=${xPos}, Y=${yPos}, Z=-0.5);
+        console.log('✅ GPS Marker Added at X=${xPos}, Y=${yPos}, Z=-0.5');
     }, (error) => {
         console.error("❌ GPS Error:", error);
     });
 
-    // ✅ Animation Loop
     renderer.setAnimationLoop(() => {
         renderer.render(scene, camera);
     });
