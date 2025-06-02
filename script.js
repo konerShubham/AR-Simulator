@@ -3,7 +3,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.137.0/build/three.m
 document.addEventListener("DOMContentLoaded", () => {
     console.log("🚀 DOM fully loaded, initializing Three.js...");
 
-    // ✅ Initialize Scene
+    // ✅ Ensure Scene is Defined
     let scene = new THREE.Scene(); // 🔥 This ensures scene exists before usage
     console.log("✅ Scene initialized:", scene);
 
